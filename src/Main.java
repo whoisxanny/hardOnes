@@ -1,73 +1,56 @@
 public class Main {
+
     public static void main(String[] args) {
         task1();
         task2();
-        task3();
     }
 
     public static void task1() {
         System.out.println("Task 1");
 
-//        Объявите целочисленные переменные *a* = 12, *b* = 27, *c* = 44, *d* = 15, *e* = 9.
-//
-//        Вычислите выражение a * (b + (c - d * e)) и присвойте его результат переменной *result*.
-//
-//        Инвертируйте результат (значение в переменной *result*), преобразовав его в вариант с противоположным значением
-//        (отрицательное -> положительное, положительное -> отрицательное).
-//        Выведите (напечатайте) результат в консоль.
+        int age = 19;
+        double salary = 50_000d;
+        double offer = 0d;
 
+        if (age >= 23) {
+            offer = salary * 3;
+        } else {
+            offer = salary * 2;
+        }
 
-        int a = 12,
-            b = 27,
-            c = 44,
-            d = 15,
-            e = 9;
-        int result = a * (b + (c - d * e));
-        result = -result;
-        System.out.println(result);
+        if (salary > 50000) {
+            offer *= 1.2;
+        } else if (salary >= 80000) {
+            offer *= 1.8;
+        }
+
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом - " + offer + " тысяч рублей");
         System.out.println();
     }
 
     public static void task2() {
-        System.out.println("Task 2");
+         int age = 25;
+         double salary = 60000d;
+         int wantedSum = 330000;
+         double percentRage = 0.10d;
+         int creditLength = 12;
+         double maxPayment = salary/2;
 
-//        Объявите целочисленные переменные * a * = 5 и * b * = 7.
-//
-//        С помощью математических манипуляций добейтесь того, чтобы *a * = 7 и * b * = 5.
-//
-//        Использовать дополнительные переменные или числа запрещено.
+        if (age < 23) {
+            percentRage = percentRage + 0.01d;
+        } else if (age < 30) {
+            percentRage = percentRage + 0.01d;
+        } else if (salary > 80000d) {
+            percentRage = percentRage - 0.07d;
+        }
 
-        int a = 5,
-            b = 7;
+        double needblePayment = wantedSum*(1 + percentRage)/12;
 
-        b = (b * a) - (a * a) - a;
-        a = (7 * a) / a;
-        System.out.println(a + " и " + b);
-        System.out.println();
+        if (maxPayment < needblePayment) {
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + needblePayment + "рублей. Отказано");
+        } else {
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + needblePayment + "рублей. Одобрено");
+        }
+
     }
-
-
-    public static void task3() {
-        System.out.println("Task 3");
-
-//        Объявите переменную *a * и инициализируйте ее любым трехзначным числом.
-//
-//                Объявите переменную * b * и, путем математических операций над * a * получите и присвойте
-//        переменной * b * цифру, которая находится в центре значения из переменной *a *.
-//
-//        Например, если * a * = 2 **5 **6, то необходимо с помощью математических действий достать цифру 5 из центра
-//        и присвоить переменной * b *.Если * a * = 7 **8 **9, то b должна быть инициализирована числом 8, так как эта
-//        цифра является вторым из трех(центральным) символом в значении * a *.
-
-        int a = 233;
-
-        int b = (a / 10) % 10;
-
-        System.out.println(b);
-        System.out.println();
-    }
-
-    
-
-
 }
