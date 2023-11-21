@@ -1,56 +1,44 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         task1();
-        task2();
+        taks2();
     }
+
 
     public static void task1() {
         System.out.println("Task 1");
-
-        int age = 19;
-        double salary = 50_000d;
-        double offer = 0d;
-
-        if (age >= 23) {
-            offer = salary * 3;
-        } else {
-            offer = salary * 2;
+        for (int i = 1; i < 31; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println(i + ": " + "ping pong");
+            } else if (i % 3 == 0) {
+                System.out.println(i + ": " + "ping");
+            } else if (i % 5 == 0) {
+                System.out.println(i + ": " + "pong");
+            } else {
+                System.out.println(i + ": ");
+            }
         }
-
-        if (salary > 50000) {
-            offer *= 1.2;
-        } else if (salary >= 80000) {
-            offer *= 1.8;
-        }
-
-        System.out.println("Мы готовы выдать вам кредитную карту с лимитом - " + offer + " тысяч рублей");
         System.out.println();
     }
 
-    public static void task2() {
-         int age = 25;
-         double salary = 60000d;
-         int wantedSum = 330000;
-         double percentRage = 0.10d;
-         int creditLength = 12;
-         double maxPayment = salary/2;
 
-        if (age < 23) {
-            percentRage = percentRage + 0.01d;
-        } else if (age < 30) {
-            percentRage = percentRage + 0.01d;
-        } else if (salary > 80000d) {
-            percentRage = percentRage - 0.07d;
+    public static void taks2() {
+        System.out.println("Task 2");
+        int[] arr = new int[10];
+        arr[0] = 0;
+        arr[1] = 1;
+
+
+        for (int i = 2; i < arr.length; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
         }
-
-        double needblePayment = wantedSum*(1 + percentRage)/12;
-
-        if (maxPayment < needblePayment) {
-            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + needblePayment + "рублей. Отказано");
-        } else {
-            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + needblePayment + "рублей. Одобрено");
-        }
+        System.out.println(Arrays.toString(arr));
+        System.out.println();
 
     }
+
+
 }
